@@ -1,0 +1,370 @@
+body,
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    background-color: #f8f5f5;
+}
+
+.logo {
+    display: flex;
+    color: #e26340;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-style: oblique;
+    justify-content: center;
+}
+
+.logo a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+.sidebar ul {
+    padding: 0px;
+}
+
+.sidebar ul li {
+    list-style: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    /* align-items: center; */
+    text-decoration: none;
+    font-size: 13px;
+    color: black;
+    padding-left: 10px;
+}
+
+.sidebar ul li a span {
+    font-size: 19px;
+}
+
+.sidebar ul li a h3 {
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+#default {
+    background-color: #bfceec;
+    border-left: 5px solid #4019cd;
+}
+
+.sidebar ul li:hover {
+    background-color: #bfceec;
+    border-left: 5px solid #4019cd;
+}
+
+.search {
+    position: relative;
+}
+
+.search ul {
+    display: flex;
+    list-style: none;
+    padding-top: 10px;
+    position: absolute;
+    left: 10%;
+}
+
+.search ul li {
+    width: 300px;
+    line-height: 20px;
+}
+
+.search input {
+    width: 100%;
+}
+
+.search span {
+    border: 1px solid rgb(120, 116, 116);
+    position: absolute;
+    left: 50%;
+    background: #ffffff;
+    border-left: none;
+}
+
+.top {
+    height: 70px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.user .avatar span {
+    font-size: 40px;
+}
+
+.user .info {
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+}
+
+.user .more {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: black;
+}
+
+.sub_menu {
+    position: absolute;
+    top: 15px;
+    left: -10px;
+    display: none;
+    background: rgba(247, 248, 249, 0.959);
+}
+
+.sub_menu ul {
+    list-style: none;
+    padding-left: -10px;
+}
+
+.sub_menu ul li a {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.sub_menu ul li:hover {
+    background-color: #bfceec;
+    border-left: 5px solid #4019cd;
+    cursor: pointer;
+}
+
+.user .more:hover .sub_menu {
+    display: block;
+}
+
+.date input[type="date"] {
+    background: transparent;
+    background: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+.revenue {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.sales,
+.expenses,
+.income {
+    background-color: #ffffff;
+    width: 32%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.sales span {
+    border-radius: 50%;
+    background: #4c11d4;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.expenses span {
+    border-radius: 50%;
+    background: #dd2d82;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.income span {
+    border-radius: 50%;
+    background: #16cf35;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.midle .left b {
+    font-size: 14px;
+}
+
+.sales > .midle {
+    position: relative;
+}
+
+.sales > .midle .prog {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    width: 72px;
+    height: 72px;
+}
+
+.expenses > .midle {
+    position: relative;
+}
+
+.expenses > .midle .prog {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    width: 72px;
+    height: 72px;
+}
+
+.income > .midle {
+    position: relative;
+}
+
+.income > .midle .prog {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    width: 72px;
+    height: 72px;
+}
+
+.prog svg circle {
+    fill: none;
+    stroke: #6a6cde;
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+.sales .prog svg circle {
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+.expenses .prog svg circle {
+    stroke-dashoffset: 40;
+    stroke-dasharray: 80;
+}
+.income .prog svg circle {
+    stroke-dashoffset: 35;
+    stroke-dasharray: 110;
+}
+.prog{
+    position: relative;
+}
+.number{
+    position: absolute;
+    bottom: 10px;
+    right: 22px;
+    font-size: 11px;
+}
+.text-muted{
+    font-size: 12px;
+}
+
+.table table{
+    width: 100%;
+    height: 200px;
+    /* border: 1px solid #d4d1d1cb; */
+    border-left: none;
+    border-right: none ;
+    
+}
+.table{
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+.table table a{
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+}
+.avt1 img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.box{
+    border-radius: 20px;
+    background: #ffffff;
+    margin: 20px 0px;
+}
+.box-sub{
+    display: flex;
+    padding: 10px;
+    
+}
+.content a{
+    font-size: 13px;
+}
+.content{
+    line-height: 15px;
+    
+}
+.notify-content{
+    line-height: 13px;
+    padding-left: 10px;
+}
+.time a{
+    font-size: 11px;
+}
+.sale-analytics .box1{
+    display: flex;
+}
+.sale-analytics .box1 .info{
+    width: 100%;
+}
+.sale-analytics .box1{
+    padding: 10px;
+}
+.sale-analytics .box1 .icon1 .material-symbols-sharp{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #6a6cde;
+    color: #ffffff;
+}
+.sale-analytics .box1 .icon2 .material-symbols-sharp{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #dd2d82;
+    color: #ffffff;
+}
+.sale-analytics .box1 .icon3 .material-symbols-sharp{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #3ade69;
+    color: #ffffff;
+}
+.sale-analytics .box1 .info .info1 .line1{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+.sale-analytics .box1 .info .info1{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+}
+.sale-analytics .box1 .info .time{
+    font-size: 11px;
+}
+.sale-analytics .box1 .info .info1 .line1 #increase{
+    color: #16cf35;
+}
+.sale-analytics .box1 .info .info1 .line1 #decrease{
+    color: red;
+}

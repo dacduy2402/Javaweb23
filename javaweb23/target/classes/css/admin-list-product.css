@@ -1,0 +1,155 @@
+body,
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    background-color: #f8f5f5;
+}
+.container .up{
+    display: flex;
+}
+.top{
+    display: flex;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    color: #e26340;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-style: oblique;
+    /* justify-content: center; */
+}
+
+.logo a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+.user {
+    display: flex;
+    padding-top: 10px;
+}
+
+.user .avatar span {
+    font-size: 40px;
+}
+
+.user .info {
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.user .more {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: black;
+}
+
+.sub_menu {
+    position: absolute;
+    top: 15px;
+    left: -10px;
+    display: none;
+    background: rgba(247, 248, 249, 0.959);
+}
+
+.sub_menu ul {
+    list-style: none;
+    padding-left: -10px;
+}
+
+.sub_menu ul li a {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.sub_menu ul li:hover {
+    background-color: #bfceec;
+    border-left: 5px solid #4019cd;
+    cursor: pointer;
+}
+
+.user .more:hover .sub_menu {
+    display: block;
+}
+
+.name-catalog{
+    font-family: 'Times New Roman', Times, serif;
+    color: #6a6cde;
+}
+.down{
+    display: flex;
+}
+.sidebar ul {
+    padding: 0px;
+}
+
+.sidebar ul li {
+    list-style: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    /* align-items: center; */
+    text-decoration: none;
+    font-size: 13px;
+    color: black;
+    padding-left: 10px;
+}
+
+.sidebar ul li a span {
+    font-size: 19px;
+}
+
+.sidebar ul li a h3 {
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+#default {
+    background-color: #bfceec;
+    border-left: 5px solid #4019cd;
+}
+
+.sidebar ul li:hover {
+    background-color: #bfceec;
+    border-left: 5px solid #4019cd;
+}
+
+.search{
+    padding: 10px;
+    display:flex
+}
+.search select, input{
+	/* width: 200px; */
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+.search button{
+    border-radius: 5px;
+}
+.list-products{
+    background: #ffffff;
+    margin: 15px 0px;
+    border-radius: 10px;
+}
+.list-products .title{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #2b0c9d;
+}
+th, td{
+    font-size:13px;
+}
+
