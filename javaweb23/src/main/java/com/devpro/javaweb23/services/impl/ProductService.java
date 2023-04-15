@@ -2,6 +2,7 @@ package com.devpro.javaweb23.services.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -185,9 +186,49 @@ public class ProductService extends BaseService<Product> {
 			if (!StringUtils.isEmpty(searchModel.getSeo())) {
 				sql += " and seo = '" + searchModel.getSeo() + "'";
 			}
+//			// tìm kiếm theo hot_products = 1
+			if (!StringUtils.isEmpty(searchModel.getProductsHot())) {
+				sql += " and p.hot_product = 1";
+			}
+			// tìm kiếm theo status = 1
+			if (!StringUtils.isEmpty(searchModel.getStatus())) {
+				sql += " and p.status = 1";
+			}
 		}
 
 		return getEntitiesByNativeSQL(sql, searchModel.getPage());
+	}
+	public List<Product> filterProduct(ProductSearch searchModel) {
+		// khởi tạo câu lệnh
+		String sql = "SELECT * FROM tbl_products p WHERE 1=1";
+		
+		if (searchModel != null) {
+			
+			// tìm kiếm theo category
+			if (searchModel.getCategoryId() != null && !"0".equals(searchModel.getCategoryId())) {
+				sql += " and category_id = " + searchModel.getCategoryId();
+			}
+			
+			// tìm kiếm theo title và description
+			if (!StringUtils.isEmpty(searchModel.getKeyword())) {
+				sql += " and (p.name_product like '%" + searchModel.getKeyword() + "%'" + " or p.description like '%"
+						+ searchModel.getKeyword() + "%')";
+			}
+			// tìm kiếm theo seo
+			if (!StringUtils.isEmpty(searchModel.getSeo())) {
+				sql += " and seo = '" + searchModel.getSeo() + "'";
+			}
+//			// tìm kiếm theo hot_products = 1
+			if (!StringUtils.isEmpty(searchModel.getProductsHot())) {
+				sql += " and p.hot_product = 1";
+			}
+			// tìm kiếm theo status = 1
+			if (!StringUtils.isEmpty(searchModel.getStatus())) {
+				sql += " and p.status = 1";
+			}
+		}
+		
+		return getEntitiesByNativeSQL(sql);
 	}
 
 }

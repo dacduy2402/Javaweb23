@@ -39,12 +39,12 @@ header .row{
     justify-content: center;
     align-items: center;
 }
-.search input{
+header .search input{
     width: 460px;
     height: 35px;
     border: 2px solid rgba(106, 101, 101, 0.6);
 }
-.search-button{
+header .search-button{
     display: flex;
     background: black;
     color: white;
@@ -200,6 +200,10 @@ nav .row{
     height: 60px;
     padding-left: 10px;
 }
+.list-product a{
+	text-decoration: none;
+	color: black;
+}
 .icon{
     display: flex;
     align-items: center;
@@ -215,6 +219,20 @@ nav .row{
     padding-left: 10px;
     font-size: 20px;
 }
+.list-product form .search{
+	padding: 10px;
+    display:flex
+}
+.list-product form .search select, input{
+	/* width: 200px; */
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+.list-product form .search #btnSearch{
+    border-radius: 5px;
+    height: 40px;
+}
+
 .product2{
     margin: 10px;
     background: #ffffff;
@@ -227,6 +245,19 @@ nav .row{
     align-items: center;
     justify-content: center;
     position: relative;
+}
+.hot{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    color: white;
+    font-size: 13px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
 }
 .installment{
     position: absolute;

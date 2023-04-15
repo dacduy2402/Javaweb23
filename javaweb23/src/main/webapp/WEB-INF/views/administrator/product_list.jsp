@@ -81,13 +81,13 @@
 						<li><a href="#"> <span class="material-symbols-sharp">person_outline</span>
 								<h3>Customer</h3>
 						</a></li>
-						<li><a href="#"> <span class="material-symbols-sharp">receipt_long</span>
+						<li><a href="${Base }/admin/order"> <span class="material-symbols-sharp">receipt_long</span>
 								<h3>Order</h3>
 						</a></li>
 						<li><a href="#"> <span class="material-symbols-sharp">insights</span>
 								<h3>Analytics</h3>
 						</a></li>
-						<li><a href="#"> <span class="material-symbols-sharp">mail_outline</span>
+						<li><a href="${Base }/admin/message"> <span class="material-symbols-sharp">mail_outline</span>
 								<h3>Message</h3>
 						</a></li>
 						<li id="default"><a href="${base }/admin/product/list"> <span

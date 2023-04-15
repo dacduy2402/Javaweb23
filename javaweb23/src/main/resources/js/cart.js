@@ -1,5 +1,7 @@
 function updateQuanlityCart(_baseUrl, _productId, _quantity) {
-
+// Xét điều kiện nếu quantity = 0 và nếu quantity - 1 thì return để k gọi đến controller
+		let prevQuantity = ($(`#quantity${_productId }`).text());//lấy text (ở đây là quantity) 
+		if(prevQuantity == 1 && _quantity == -1) return;
 		// tạo javascript object để binding với data bên phía controller  
 		var requestBody = {
 			productId: _productId,
@@ -8,15 +10,14 @@ function updateQuanlityCart(_baseUrl, _productId, _quantity) {
 		// $ === jQuery
 		// json == javascript object
 		jQuery.ajax({
-			url: _baseUrl + "/ajax/increaseItems", 	   //->request mapping định nghĩa bên controller
+			url: _baseUrl + "/ajax/changeQuantity", 	   //->request mapping định nghĩa bên controller
 			type: "post",					   //-> method type của Request Mapping	
 			contentType: "application/json",   //-> nội dung gửi lên dạng json <=> javascript object
 			data: JSON.stringify(requestBody), //-> chuyển 1 javascript object thành string json
 
 			dataType: "json", 				   // kiểu dữ liệu trả về từ Controller
 			success: function (jsonResult) {    // gọi ajax thành công
-				let prevQuantity = ($(`#quantity${_productId }`).text());//lấy text (ở đây là quantity) 
-				$(`#quantity${_productId }`).html(parseInt(prevQuantity) + _quantity);// lay cai text tren cong hoac tru 1
+			
 				$("#soluongsanphamtronggiohang").html(jsonResult.totalItems);
 				location.reload();
 		//		console.log($(`#quanlity${_productId }`));

@@ -167,7 +167,6 @@
                                     <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thông
                                         tin khách hàng</div>
                                     <div class="p-4">
-
                              <c:choose>
 								<c:when test="${isLogined }">
                                         <div class="form-group" style="margin-bottom: 10px;">
@@ -196,12 +195,34 @@
                                         </div>
                                     </c:when>
 								<c:otherwise>
-									<input type="text">
+								<div class="form-group" style="margin-bottom: 10px;">
+                                            <label for="customerPhone">Họ và tên khách hàng</label>
+                                            <input type="text" class="form-control" id="customerFullName"
+                                                name="customerFullName" placeholder="Full name"
+                                                style="margin-top: 5px;" value="${userLogined.username}">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 10px;">
+                                            <label for="customerEmail">Địa chỉ Email</label>
+                                            <input type="email" class="form-control" id="customerEmail"
+                                                name="customerEmail" placeholder="Enter email" style="margin-top: 5px;"
+                                                value="${userLogined.email}">
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share your
+                                                email with anyone else.</small>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 10px;">
+                                            <label for="customerPhone">Phone</label>
+                                            <input type="tel" class="form-control" id="customerPhone"
+                                                name="customerPhone" placeholder="Phone" style="margin-top: 5px;">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 10px;">
+                                            <label for="customerAddress">Địa chỉ giao hàng</label>
+                                            <input type="text" class="form-control" id="customerAddress"
+                                                name="customerAddress" placeholder="Address" style="margin-top: 5px;">
+                                        </div>
+									<!-- <input type="text"> -->
 								</c:otherwise>
-							</c:choose> 
-
-
-                                    </div>
+							</c:choose>
+									</div>
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-lg-5">

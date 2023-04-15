@@ -39,7 +39,13 @@
                 </div>
                 <div class="col-2 cart">
                     <i class="fa-solid fa-cart-shopping" style="font-size: 20px;"></i>
-                    <a>giỏ hàng</a>
+                    <a href="${base}/cart/checkout" style="text-decoration: none; color: black">giỏ hàng</a>
+                    <div id="soluongsanphamtronggiohang" 
+					style="width: 20px; height: 20px; border-radius: 10px; background: #363535; 
+					color: #ffffff; display:flex; justify-content: center; align-items: center;
+					font-size: 12px; ; margin: 0px 0px 3px 5px">
+					${TongSoLuongSanPhamTrongGioHang }
+				</div>
                 </div>
             </div>
         </header>
@@ -89,14 +95,12 @@
                 <div class="col-12 product">
                     <div class="col-5 left">
                         <div class="img-product">
-                            <img src="${base}/images/ip1.jpg" id="show-image">
-                            <ul>
-                                <li><img src="${base}/images/ip1.jpg" onclick="changeImage('img1');" id="img1"></li>
-                                <li><img src="${base}/images/ip2.jpg" onclick="changeImage('img2');" id="img2"></li>
-                                <li><img src="${base}/images/ip3.jpg" onclick="changeImage('img3');" id="img3"></li>
-                                <li><img src="${base}/images/ip4.jpg" onclick="changeImage('img4');" id="img4"></li>
-                                <li><img src="${base}/images/ip5.jpg" onclick="changeImage('img5');" id="img5"></li>
-                                <li><img src="${base}/images/ip6.jpg" onclick="changeImage('img6');" id="img6"></li>
+                            <img src="${base }/upload/${product.avtProduct}" id="show-image">
+                            <ul id="list-image">
+                                <c:forEach items="${product.productImages }" var="productImage">
+									<li><img src="${base }/upload/${productImage.path}" 
+									onclick="changeImage('${productImage.path}');" id="${productImage.path}"></li>
+								</c:forEach>
                             </ul>
                         </div>
                         <!-- specifications -->
@@ -135,15 +139,15 @@
                     </div>
                     <div class="col-7 info-product">
                         <div class="name">
-                            <a>IPhone 14 Pro Max</a>
+                            <a>${product.nameProduct }</a>
                         </div>
                         <!-- price -->
                         <div class="price">
                             <img src="${base}/images/black-friday.jpg" alt="">
                             <div class="price1">
-                                <a>33.490.000<sup>đ</sup></a>
+                                <a>${product.priceSale}<sup>đ</sup></a>
                                 <div class="cost">
-                                    <a>34.990.000<sup>đ</sup></a>
+                                    <a>${product.price}<sup>đ</sup></a>
                                 </div>
                             </div>
                         </div>
@@ -210,16 +214,17 @@
                         </div>
                         <!-- /choose-color -->
                         <!-- quantity -->
-                        <div class="quantity">
+                        <div class="quantity" style="display:flex">
                             <label for="quantity"><a style="font-weight: bold;">Số lượng:</a></label>
-                            <select name="number" id="number">
+                            <!-- <select name="number" id="number">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                                 <option value="6">6</option>
-                            </select>
+                            </select> -->
+                            <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 4rem; margin-left: 10px; height: 30px" />
                         </div>
                         <!-- quantity -->
                         <!-- buy -->
@@ -231,7 +236,7 @@
                                 </button>
                             </div>
                             <div class="btn-cart">
-                                <button id="btn-cart">
+                                <button id="btn-cart" onclick="AddToCart('${base}',${product.id}, 1)">
                                     <i class="fa-solid fa-cart-plus"></i>
                                     thêm vào giỏ hàng
                                 </button>
@@ -283,7 +288,7 @@
                             <a>Đánh giá chi tiết sản phẩm</a>
                         </div>
                         <div class="info-detail">
-                            <div class="head-prg">
+                            <%-- <div class="head-prg">
                                 <a>iPhone 14 Pro Max đem đến những trải nghiệm không thể tìm
                                     thấy trên mọi thế hệ iPhone trước đó với màu Tím Deep
                                     Purple sang trọng, camera 48MP lần đầu xuất hiện, chip
@@ -318,12 +323,13 @@
                                 viết là giá tại thời điểm cập nhật gần nhất. Do đó mức
                                 giá có thể có sự chênh lệnh tùy theo thời điểm và chương
                                 trình khuyến mãi. Để biết được giá bán chính xác nhất,
-                                hãy liên hệ tổng đài của Techshop: 19005353.</i>
-
+                                hãy liên hệ tổng đài của Techshop: 19005353.</i>--%>
+ 							${product.description }
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- </form> -->
             <!-- /detail product -->
         </div>
         <div class="footer">
@@ -405,14 +411,13 @@
                 //tác động vào id = show-image, truyền giá trị vào thuoọc tính src
                 document.getElementById("show-image").setAttribute("src", srcImage);
                 //bỏ hết các đường viền của các ảnh nhỏ
-                document.getElementById('img1').removeAttribute("style");
-                document.getElementById('img2').removeAttribute("style");
-                document.getElementById('img3').removeAttribute("style");
-                document.getElementById('img4').removeAttribute("style");
-                document.getElementById('img5').removeAttribute("style");
-                document.getElementById('img6').removeAttribute("style");
+                document.getElementById(id).removeAttribute("style");
+/*                 var list-image = $("#list-image").children;
+                list-image.forEach((img) => {
+                	if ()
+                })) */
                 // set đường viền bao quanh thẻ html tương ứng vs id truyền vào
-                document.getElementById(id).setAttribute("style", "border:1px solid red");
+                /* document.getElementById(id).setAttribute("style", "border:1px solid red"); */
             }
         </script>
         <script>
@@ -432,6 +437,7 @@
             }
         </script>
     </div>
+    <script src="${Base }/js/addToCard.js"></script>
 </body>
 
 </html>

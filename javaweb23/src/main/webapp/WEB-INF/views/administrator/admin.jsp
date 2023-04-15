@@ -48,7 +48,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="${Base }/admin/order">
                 <span class="material-symbols-sharp">receipt_long</span>
                 <h3>Order</h3>
               </a>
@@ -60,7 +60,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="${Base }/admin/message">
                 <span class="material-symbols-sharp">mail_outline</span>
                 <h3>Message</h3>
               </a>

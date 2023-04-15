@@ -153,6 +153,8 @@ nav .row{
 }
 .category ul li a{
     padding-left: 20px;
+    text-decoration: none;
+    color: black;
 }
 .category ul li:hover{
     background: rgba(188, 186, 186, 0.5);
@@ -272,10 +274,13 @@ nav .row{
     align-items: center; 
 }
 .product2{
-    margin: 10px;
+    
     background: #ffffff;
     height: 400px;
     position: relative;
+}
+.products-box{
+    padding: 10px;
 }
 .product-img{
     display: flex;

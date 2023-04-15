@@ -195,8 +195,8 @@ public class CartController extends BaseController {
 			return total;
 		}
 	
-	@RequestMapping(value = { "/ajax/increaseItems" }, method = RequestMethod.POST)
-	public ResponseEntity<Map<String, Object>> ajax_IncreaseItems(final Model model,
+	@RequestMapping(value = { "/ajax/changeQuantity" }, method = RequestMethod.POST)
+	public ResponseEntity<Map<String, Object>> ajax_changeQuantity(final Model model,
 														       final HttpServletRequest request,
 														       final HttpServletResponse response, 
 														       final @RequestBody CartItem cartItem) 
@@ -248,6 +248,14 @@ public class CartController extends BaseController {
 		session.setAttribute("TongSoLuongSanPhamTrongGioHang", getTotalItems(request));
 		// tất cả các giá trị lưu trên session đều có thể truy cập được từ View
 		session.setAttribute("tongGia", getTotalPrice(request));
+//		for (CartItem item : cartItems) {
+//			if (item.getQuantity() >= 0) {
+//				// tăng số lượng sản phẩm lên
+//				item.setQuantity(item.getQuantity() + cartItem.getQuantity());
+//				
+//				break;
+//			}
+//		}
 		return ResponseEntity.ok(jsonResult);
 		
 	}

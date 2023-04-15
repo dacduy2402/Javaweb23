@@ -12,16 +12,17 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>List Products</title>
+<title>Danh mục sản phẩm</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 <link rel="stylesheet" href="${base }/css/list-product.css">
 <script src="${base }/js/jquery-3.6.1.js"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-<script src="${base }/js/home.js"></script>
+
 <link rel="stylesheet" href="${base }/css/owl.carousel.min.css">
 <link rel="stylesheet" href="${base }/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="${Base}/css/simplePagination.css" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -70,10 +71,10 @@
 							<ul>
 								<li><a href="${base}/home"
 									style="color: #ffffff; text-decoration: none;">Trang chủ</a></li>
-								<li><a>Sản phẩm</a></li>
+								<li><a href="${Base }/list-product" style="color: #ffffff; text-decoration: none;">Sản phẩm</a></li>
 								<li><a>Tin tức - Sự kiện</a></li>
 								<li><a>Hỏi đáp</a></li>
-								<li><a style="border: none;">Liên hệ</a></li>
+								<li><a href="${Base }/contact" style="color: #ffffff; text-decoration: none; border: none;">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>
@@ -89,10 +90,10 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="path">
-						<a href="${base }/home.jsp" style="text-decoration: none;">Trang chủ</a>
+						<a href="${base }/home" style="text-decoration: none;">Trang chủ</a>
 						<a style="padding: 0px 5px; color: rgba(45, 43, 43, 0.7);"> <i
 							class="fa-solid fa-angle-right"></i></a> <a
-							style="color: rgba(45, 43, 43, 0.7);">Điện thoại</a>
+							style="color: rgba(45, 43, 43, 0.7);">Danh mục sản phẩm</a>
 					</div>
 				</div>
 			</div>
@@ -101,22 +102,22 @@
 				<div class="col-12 center">
 					<div class="owl-carousel owl-theme">
 						<div class="item">
-							<img src="${base}/images/slide1.jpg" alt="">
+							<img src="./images/slide1.jpg" alt="">
 						</div>
 						<div class="item">
-							<img src="${base}/images/slide2.jpg" alt="">
+							<img src="./images/slide2.jpg" alt="">
 						</div>
 						<div class="item">
-							<img src="${base}/images/slide3.jpg" alt="">
+							<img src="./images/slide3.jpg" alt="">
 						</div>
 						<div class="item">
-							<img src="${base}/images/slide4.jpg" alt="">
+							<img src="./images/slide4.jpg" alt="">
 						</div>
 						<div class="item">
-							<img src="${base}/images/slide5.jpg" alt="">
+							<img src="./images/slide5.jpg" alt="">
 						</div>
 						<div class="item">
-							<img src="${base}/images/slide6.jpg" alt="">
+							<img src="./images/slide6.jpg" alt="">
 						</div>
 					</div>
 				</div>
@@ -239,11 +240,31 @@
 						<div class="icon">
 							<i class="fa-solid fa-mobile-screen-button"></i>
 						</div>
-						<a>điện thoại</a>
+						<a>sản phẩm</a>
 					</div>
+					<form action="${base }/list-product" method="get">
+						<div class="col-7 search">
+							<!-- số trang sản phẩm -->
+							<input id="page" name="page" class="form-control"
+								value="${productSearch.page }" style="margin-right: 5px;">
+							<!-- Tim kiem theo ten -->
+							<input type="search" id="keyword" name="keyword"
+								class="form-control" placeholder="Search"
+								value="${productSearch.keyword }" autocomplete="off">
+							<!-- Tim kiem theo category -->
+							<select class="form-control" name="categoryId" id="categoryId"
+								style="margin: 0px 5px; width: 100px">
+								<option value="0">All</option>
+								<c:forEach items="${categories}" var="category">
+									<option value="${category.id }">${category.name }</option>
+								</c:forEach>
+							</select>
+							<button type="submit" id="btnSearch" name="btnSearch">Search</button>
+						</div>
+					</form>
 					<div class="products-box">
 						<div class="row">
-							<c:forEach var="product" items="${products }">
+							<c:forEach var="product" items="${products.data }">
 								<div class="col-4 product1">
 									<div class="product2">
 										<div class="product-img">
@@ -283,17 +304,25 @@
 									</div>
 								</div>
 							</c:forEach>
+							<!-- phân trang -->
+					<div class="row">
+						<div class="col-12 d-flex justify-content-center">
+							<div id="paging"></div>
 						</div>
 					</div>
+						</div>
+						
+					</div>
 				</div>
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-lg-12">
 						<div class="see-more">
 							<input type="button" value="Xem thêm">
 						</div>
 					</div>
 				</div>
-				<!-- /list-product -->
+				
+ 				<!-- /list-product -->
 			</div>
 		</div>
 	</div>
@@ -345,7 +374,29 @@
 	<div class="croll-top">
 		<a href="#top"><i class="fa-solid fa-up-long"></i></a>
 	</div>
-	<script src="${Base }/js/owl.carousel.min.js"></script>
 	<script src="${Base }/js/addToCard.js"></script>
+	<script src="${base }/js/home.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Paging -->
+	<script src="${base}/js/jquery.simplePagination.js"></script>
+	<script type="text/javascript">
+			$( document ).ready(function() {
+				// đặt giá trị của category ứng với điều kiện search trước đó
+				$("#categoryId").val(${productSearch.categoryId});
+				$("#paging").pagination({
+					currentPage: ${products.currentPage}, 	//trang hiện tại
+			        items: ${products.totalItems},			//tổng số sản phẩm
+			        itemsOnPage: ${products.sizeOfPage}, 	//số sản phẩm trên 1 trang
+			        cssStyle: 'light-theme',
+			        onPageClick: function(pageNumber, event) {
+			        	$('#page').val(pageNumber);
+			        	$('#btnSearch').trigger('click');
+					},
+			    });
+			});
+		</script> 
+		
+		<script src="./js/owl.carousel.min.js"></script>
+		
 </body>
 </html>

@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -14,6 +15,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_category") //entity mapping với bảng nào
 public class Categories extends BaseEntity{
+	@Id
+	@Column(name = "id")
+	private Integer id;
 	@Column(name = "name", length = 100, nullable = false)
 	private String name;
 	@Column(name = "description", length = 100, nullable = false)
@@ -66,6 +70,12 @@ public class Categories extends BaseEntity{
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	

@@ -148,6 +148,7 @@ nav .row {
 }
 .img-product ul img:hover {
     cursor: pointer;
+    border: 1px solid red;
 }
 .img-product ul li {
     width: 70px;

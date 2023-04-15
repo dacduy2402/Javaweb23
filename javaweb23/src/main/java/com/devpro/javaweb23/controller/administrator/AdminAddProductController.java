@@ -116,6 +116,8 @@ public class AdminAddProductController extends BaseController{
 		productSearch.setKeyword(keyword);
 		productSearch.setCategoryId(categoryId);
 		productSearch.setCurrentPage(currentPage);
+		productSearch.setProductsHot(null);
+		productSearch.setStatus(null);
 		
 		// muốn giữ được các giá trị search trên màn hình
 		// thì phải đẩy lại các dữ liệu nhập trước đó xuống view

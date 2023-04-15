@@ -35,6 +35,7 @@ public class ProductController extends BaseController{
 		Product product = productService.searchProduct(ps).getData().get(0);
 		model.addAttribute("product", product);
 		
+		
 //		đường dẫn tới view
 		return "customer/detail";
 	}

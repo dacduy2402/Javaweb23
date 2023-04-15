@@ -61,13 +61,13 @@
 						<li><a href="#"> <span class="material-symbols-sharp">person_outline</span>
 								<h3>Customer</h3>
 						</a></li>
-						<li><a href="#"> <span class="material-symbols-sharp">receipt_long</span>
+						<li><a href="${Base }/admin/order"> <span class="material-symbols-sharp">receipt_long</span>
 								<h3>Order</h3>
 						</a></li>
 						<li><a href="#"> <span class="material-symbols-sharp">insights</span>
 								<h3>Analytics</h3>
 						</a></li>
-						<li><a href="#"> <span class="material-symbols-sharp">mail_outline</span>
+						<li><a href="${Base }/admin/message"> <span class="material-symbols-sharp">mail_outline</span>
 								<h3>Message</h3>
 						</a></li>
 						<li><a href="${Base}/admin/product/list"> <span class="material-symbols-sharp">inventory</span>
@@ -104,7 +104,7 @@
 						<h1>Add Product</h1>
 					</div>
 					<div class="form">
-						<sf:form modelAttribute="product"
+						 <sf:form modelAttribute="product"
 							action="${base}/admin/product/management/saveOrUpdate"
 							method="post" enctype="multipart/form-data">
 							<div class="product-input">
@@ -284,8 +284,7 @@
 							<span class="material-symbols-sharp">account_circle</span>
 						</div>
 						<div class="info">
-							<a id="name" style="font-size: 15px; line-height: 15px;">Dac
-								Duy</a> <a id="Position" style="font-size: 12px; line-height: 12px;">Admin</a>
+							<a id="name" style="font-size: 15px; line-height: 15px;">${userLogined.username }</a> <a id="Position" style="font-size: 12px; line-height: 12px;">Admin</a>
 						</div>
 						<div class="more">
 							<a href="#" style="color: black;"><span

@@ -30,8 +30,8 @@ $(function () {
         // set giá trị vào id = time
         document.getElementById("time").innerHTML = strTime;
     }, 1000);
-    $('.owl-carousel').owlCarousel({
-        rtl: true,
+   $('#promotion').owlCarousel({
+ //       rtl: true,
         loop: true,
         margin: 10,
         nav: true,
@@ -48,6 +48,73 @@ $(function () {
             }
         }
     })
+    $(document).ready(function() {
+ 
+        $("#hot-product").owlCarousel({
+        //   navigation : true,
+ //         rtl: true,
+        margin: 10,
+        nav: true,
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 4
+            }
+        }
+        });
+       
+      });
+    $(document).ready(function() {
+ 
+        $("#hot-laptops").owlCarousel({
+        //   navigation : true,
+ //         rtl: true,
+        margin: 10,
+        nav: true,
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 4
+            }
+        }
+        });
+       
+      });
+    $(document).ready(function() {
+ 
+        $("#hot-phones").owlCarousel({
+        //   navigation : true,
+ //         rtl: true,
+        margin: 10,
+        nav: true,
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 4
+            }
+        }
+        });
+       
+      });
+
 });
 
 

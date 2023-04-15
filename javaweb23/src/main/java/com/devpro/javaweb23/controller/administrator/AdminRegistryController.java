@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -43,9 +44,10 @@ public class AdminRegistryController extends BaseController{
 		System.out.println(registryDTO.getUsername() +" "+registryDTO.getEmail()+" "+registryDTO.getPassword());
 //		Lưu contact vào trong db sử dụng service thích hợp
 		User user = new User();
+		String passwordEncode = new BCryptPasswordEncoder(4).encode(registryDTO.getPassword());
 		user.setUsername(registryDTO.getUsername());
 		user.setEmail(registryDTO.getEmail());
-		user.setPassword(registryDTO.getPassword());
+		user.setPassword(passwordEncode);
 		registryService.saveOrUpdate(user);
 //		đường dẫn tới view
 		return "registry";

@@ -19,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		// connect tới db và lấy user theo username
 //		User userDetails = userService.loadUserByUsername(username);
 //		System.err.println("userDetails: "+ userDetails.getUsername());
-////		userDetails.getAuthorities().forEach(System.err::print);
+//		userDetails.getAuthorities().forEach(System.err::print);
 //		return userDetails;
 
 			// connect tới db và lấy user theo username

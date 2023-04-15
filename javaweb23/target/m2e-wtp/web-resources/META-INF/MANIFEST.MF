@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Built-By: mrduy
-Build-Jdk: 11.0.16.1
+Build-Jdk: 11.0.18
 Implementation-Title: Maven Spring Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: com.devpro
